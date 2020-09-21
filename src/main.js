@@ -1,6 +1,21 @@
-let io = require('socket.io-client')
+// let io = require('socket.io-client')
+import io from 'socket.io-client'
 
 let socket = io('http://botws.generals.io')
+
+export function Start() {
+  setTimeout(() => {
+    socket.emit('set_force_start', config.custom_game_id, true)
+  }, 100)
+}
+
+export function Join(userID, username) {
+  socket.emit('set_username', userID, username)
+  socket.emit('join_private', config.custom_game_id, userID)
+}
+export function Team(gameId, team) {
+  socket.emit('set_custom_team', gameId, team)
+}
 
 socket.on('disconnect', function () {
   console.error('Disconnected from server.')

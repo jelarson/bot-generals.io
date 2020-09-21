@@ -1,20 +1,42 @@
 import React, { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import { css } from '@emotion/core'
+import { Start, Join, Team } from './main'
 
 function App() {
+  // const handleChange = option => {
+  //   setValue(option)
+  //   Team(config.custom_game_id, option)
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React STUFF!
-        </a>
-      </header>
+      <button
+        type="button"
+        onClick={() => {
+          Start()
+        }}
+      >
+        Start
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          Join()
+        }}
+      >
+        Join Game
+      </button>
+      {/* <select placeholder="Team" onChange={(value) => {handleChange(option)}}>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+      </select> */}
     </div>
   )
 }
