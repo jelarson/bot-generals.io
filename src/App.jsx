@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import './App.css'
 import { css } from '@emotion/core'
 import { Start, Join, Team } from './main'
+import configObj from './config'
 
 function App() {
+  const { config } = configObj()
   // const handleChange = option => {
   //   setValue(option)
   //   Team(config.custom_game_id, option)
@@ -22,7 +24,7 @@ function App() {
       <button
         type="button"
         onClick={() => {
-          Join()
+          Join(config.BOT_USER_ID, config.username)
         }}
       >
         Join Game

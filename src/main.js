@@ -1,7 +1,10 @@
 // let io = require('socket.io-client')
 import io from 'socket.io-client'
+import configObj from './config'
 
 let socket = io('http://botws.generals.io')
+
+const { config } = configObj()
 
 export function Start() {
   setTimeout(() => {
@@ -31,19 +34,19 @@ socket.on('connect', function () {
    * replacing this line with something that instead supplies the user_id via an environment variable, e.g.
    * var user_id = process.env.BOT_USER_ID;
    */
-  let user_id = '398aeef5-b97d-4583-b341-b6867e2d7b02'
-  let username = '[Bot]Jesse'
+  // let user_id = '398aeef5-b97d-4583-b341-b6867e2d7b02'
+  // let username = '[Bot]Jesse'
 
   // Set the username for the bot.
   // This should only ever be done once. See the API reference for more details.
-  socket.emit('set_username', user_id, username)
+  // socket.emit('set_username', user_id, username)
 
   // Join a custom game and force start immediately.
   // Custom games are a great way to test your bot while you develop it because you can play against your bot!
-  let custom_game_id = 'sainz'
-  socket.emit('join_private', custom_game_id, user_id)
-  socket.emit('set_force_start', custom_game_id, true)
-  console.log(`Joined custom game at http://bot.generals.io/games/${encodeURIComponent(custom_game_id)}`)
+  // let custom_game_id = 'sainz'
+  // socket.emit('join_private', custom_game_id, user_id)
+  // socket.emit('set_force_start', custom_game_id, true)
+  // console.log(`Joined custom game at http://bot.generals.io/games/${encodeURIComponent(custom_game_id)}`)
 
   // When you're ready, you can have your bot join other game modes.
   // Here are some examples of how you'd do that:
